@@ -12,10 +12,10 @@ export const nextAuthOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_SECRET!,
     }),
     //SSOを実装したい場合はここにプロバイダーを記述していく
-    Google({
-      clientId: "",
-      clientSecret: "",
-    }),
+    // Google({
+    //   clientId: "",
+    //   clientSecret: "",
+    // }),
   ],
   adapter: PrismaAdapter(prisma),
   callbacks: {
