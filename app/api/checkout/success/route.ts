@@ -4,7 +4,7 @@ import prisma from "@/app/lib/prisma";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
-export async function POST(request: Request, response: Response) {
+export async function POST(request: Request) {
   const { sessionId } = await request.json();
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
@@ -30,7 +30,7 @@ export async function POST(request: Request, response: Response) {
         message: "すでに購入済みです",
       });
     }
-  } catch (err: any) {
-    return NextResponse.json({ message: err.message });
+  } catch (err) {
+    return NextResponse.json({ message: (err as Error).message });
   }
 }
