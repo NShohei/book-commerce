@@ -25,7 +25,6 @@ const Header = async () => {
           </Link>
 
           <Link
-            // href={user ? "/profile" : "/login"}
             href={user ? "/profile" : "/api/auth/signin"}
             className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
           >
